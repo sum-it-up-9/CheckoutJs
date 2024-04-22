@@ -115,7 +115,7 @@ const ConditionalDropdownComponent: React.FC<Props> = ({ cart }) => {
     const raw = JSON.stringify({ "cart": { "discounts": [{ "discounted_amount": 2, "name": "manual" }] } });
 
     const checkoutid = cart.id; 
-    const res=await fetch(`https://api.bigcommerce.com/stores/eagnf01idv/v3/checkouts/${checkoutid}/discounts`, { method: "POST", headers: myHeaders, body: raw, redirect: "follow" });
+    const res=await fetch(`https://api-hit-pied.vercel.app/discount/${checkoutid}`, { method: "GET", headers: myHeaders, body: raw, redirect: "follow" });
     const data= await res.json();
     console.log('updated cart value returned from dicounted api: ',data);
   }
