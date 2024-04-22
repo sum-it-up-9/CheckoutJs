@@ -112,10 +112,10 @@ const ConditionalDropdownComponent: React.FC<Props> = ({ cart }) => {
     myHeaders.append("X-Auth-Token", "44v4r4o38ki0gznr4kn5exdznzft69c"); 
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append( 'Access-Control-Allow-Origin', '*');
-    const raw = JSON.stringify({ "cart": { "discounts": [{ "discounted_amount": 2, "name": "manual" }] } });
+    //const raw = JSON.stringify({ "cart": { "discounts": [{ "discounted_amount": 2, "name": "manual" }] } });
 
     const checkoutid = cart.id; 
-    const res=await fetch(`https://api-hit-pied.vercel.app/discount/${checkoutid}`, { method: "GET", headers: myHeaders, body: raw, redirect: "follow" });
+    const res=await fetch(`https://api-hit-pied.vercel.app/discount/${checkoutid}`, { method: "GET", headers: myHeaders, redirect: "follow" });
     const data= await res.json();
     console.log('updated cart value returned from dicounted api: ',data);
   }
